@@ -1,1 +1,5 @@
 id,date,question,decision,rationale,status
+D01,2026-09-28,"L5 Bike ở adasind_261480.jpg không có trong reference, có xóa không?","Giữ Bike.","Phần nhìn thấy cao hơn 40 px và nằm trong vùng hợp lệ theo R01-R02; reference không tự động là chân lý.",accepted
+D02,2026-09-28,"R4 Bike ở adasind_265065.jpg bị bỏ sót trong export khóa xử lý thế nào?","Thêm lại Bike ở rework.","Đối tượng có trên ảnh gốc; rework delta cho thấy center matched 3→4 và missing 1→0.",accepted
+D03,2026-09-28,"R5 Bike và R7 Pedestrian ở adasind_265065.jpg có thêm để khớp reference không?","Không thêm.","R5 không đủ rõ để nhận diện đáng tin; R7 không phải Pedestrian trên ảnh gốc. Giữ quyết định có bằng chứng thay vì đoán nhãn.",accepted
+D04,2026-09-28,"Các Pedestrian thừa của model trên Bike và M6 trên Truck xử lý thế nào?","Escalate cho ai_team.","Pattern lặp tại adasind_249480.jpg và adasind_261480.jpg, có screenshot và findings r3_diag; cần review model/dữ liệu thay vì rework annotation.",escalated

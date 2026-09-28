@@ -1,0 +1,9 @@
+round: r1_craft
+slice: B4-mid
+sha256: e43835123506ee685e408b699f10feedba05d73cb3fd2fa5d0abec70e4991875
+code: E438-3512
+locked_at: 2026-09-28T17:42:53+07:00
+shapes: box=16, polygon=13
+prefill_kept: 1
+prefill_edited: 0
+new: 15

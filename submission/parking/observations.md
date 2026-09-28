@@ -1,6 +1,6 @@
 # Quan sát vạch ô đỗ
 
-- Hai vạch `parking_line` đã vẽ (mô tả vị trí trong ảnh): TODO
-- Một vạch/dấu sơn hoặc biên **không** vẽ, và vì sao: TODO
-- Polygon `free_space` dừng ở đâu; có phần bị che nào không: TODO
-- Ca chưa chắc cần hỏi người soát (nếu không có, ghi “không có”): TODO
+- Hai vạch `parking_line` đã vẽ (mô tả vị trí trong ảnh): chọn các đoạn sơn ngắn nối tiếp ở cụm ô tiền cảnh. Hai vạch đại diện là đoạn từ `(48.52,570.83)` qua `(55.65,540.27)` đến `(248.07,563.44)`, và đoạn kế bên từ `(248.58,563.26)` qua `(196.78,535.76)` đến `(420.79,554.11)`. Export cũng giữ bốn đoạn cùng cụm để bám các phần sơn chia ô còn nhìn thấy.
+- Một vạch/dấu sơn hoặc biên **không** vẽ, và vì sao: không gán các biên/vạch nằm ngoài cụm ô tiền cảnh nếu chúng chỉ xác định mép hoặc hướng của lối xe chạy; chúng không được dùng làm ranh giới của một ô đỗ riêng lẻ theo rule `parking_line`.
+- Polygon `free_space` dừng ở đâu; có phần bị che nào không: sáu polygon dừng tại các cạnh sơn nhìn thấy của từng vùng trống ở cụm tiền cảnh, ví dụ polygon đầu tiên giới hạn bởi `(52.66,571.75)`, `(57.87,541.78)`, `(195.50,536.90)` và `(242.90,563.34)`. Không kéo polygon qua phần ngoài ranh giới sơn đã quan sát hoặc qua vùng không thể xác nhận là mặt đường trống.
+- Ca chưa chắc cần hỏi người soát (nếu không có, ghi “không có”): cần người soát xác nhận các polygon trong cụm ô tiền cảnh có đúng là `free_space` của lối xe chạy hay chỉ là mặt ô đỗ trống; nếu là mặt ô đỗ, sẽ sửa export để chỉ giữ polygon trên lối xe chạy nhìn thấy.

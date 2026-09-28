@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,28,"Thấp-trung bình: cảnh phía trước rõ hơn nhưng vẫn có xe hai bánh và người đi bộ","Lấy cảnh giao thông/đỗ xe bình thường để phủ đối tượng phổ biến và kiểm hình học fisheye."
+front,hard,22,"Trung bình: người dắt xe, rider và che khuất ở vùng trước","Bổ sung ca rider so với người dắt xe, vật bị che và đối tượng gần biên ảnh."
+rear,normal,20,"Trung bình: vật lùi/đỗ phía sau có thể nhỏ hoặc xa trong ảnh","Phủ lối lùi và xe/người đi bộ bình thường phía sau."
+rear,hard,30,"Cao: đối tượng nhỏ, che khuất khi lùi và vùng overlap ở góc sau","Tăng mẫu hard cho xe/người ở góc sau, vật bị che và ca gần seam rear-left/rear-right."
+left,normal,22,"Trung bình: xe hai bánh và người đi bộ đi sát hông xe","Phủ luồng đi bên trái và các đối tượng hông xe trong điều kiện bình thường."
+left,hard,28,"Cao: vật sát hông, méo fisheye, che khuất và seam front-left/rear-left","Tăng mẫu hard cho rider, người dắt xe, vật sát xe và ca xuất hiện ở vùng chồng camera."
+right,normal,22,"Trung bình: xe hai bánh và người đi bộ đi sát hông xe","Phủ luồng đi bên phải và các đối tượng hông xe trong điều kiện bình thường."
+right,hard,28,"Cao: vật sát hông, méo fisheye, che khuất và seam front-right/rear-right","Tăng mẫu hard cho rider, người dắt xe, vật sát xe và ca xuất hiện ở vùng chồng camera."

@@ -1,0 +1,9 @@
+round: calib
+slice: C0
+sha256: 96dbde4700d08341bdf8fb6d90ced84ba8e52460f2c3dd29386f2ad5716e1a8d
+code: 96DB-DE47
+locked_at: 2026-09-28T16:13:50+07:00
+shapes: box=10, polygon=2
+prefill_kept: 0
+prefill_edited: 0
+new: 10

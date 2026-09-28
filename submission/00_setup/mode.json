@@ -1,0 +1,17 @@
+{
+  "members": [
+    "hahuy"
+  ],
+  "assignments": {
+    "hahuy": "B4-mid"
+  },
+  "self": "hahuy",
+  "slice": "B4-mid",
+  "degrade": [],
+  "current_slice": "B4-mid",
+  "support_prefill": false,
+  "support_slice": "",
+  "prefill_box_ids": [
+    "adasind_249480.jpg:1"
+  ]
+}

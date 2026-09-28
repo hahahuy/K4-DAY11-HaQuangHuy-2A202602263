@@ -8,11 +8,11 @@ không làm thay phần lý do.
 
 | camera_id | Hard case cần chọn | Vì sao dễ sai | Annotation space / calibration cần giữ | Cách review trước khi gọi là gold |
 |---|---|---|---|---|
-| front | TODO | TODO | TODO | TODO |
-| rear | TODO | TODO | TODO | TODO |
-| left | TODO | TODO | TODO | TODO |
-| right | TODO | TODO | TODO | TODO |
+| front | Rider/người dắt xe, người đi bộ hoặc xe hai bánh bị che gần biên ảnh | Dễ tách nhầm người lái thành `Pedestrian`, nhầm `truncated` với `occluded`, hoặc bỏ sót vật sát biên | Giữ ảnh fisheye gốc, vòng kính, timestamp, calibration của camera front và rule R01-R05 áp dụng tại thời điểm gán nhãn | Một annotator độc lập gán nhãn mù; reviewer so ảnh gốc, rule và calibration. Bất đồng được ghi thành finding rồi adjudicate trước khi chốt gold |
+| rear | Xe/người nhỏ khi lùi, vật bị che và đối tượng ở hai góc sau | Vật có thể nhỏ, méo mạnh hoặc nằm trong seam rear-left/rear-right; nguy cơ bỏ sót cao | Giữ ảnh gốc, timestamp đồng bộ, calibration rear, vòng kính và vùng ignore/ego body thực tế | Chọn riêng normal/hard theo `45_sampling_plan.csv`; hai người review độc lập các ca hard, adjudicator quyết định khi class/hình học khác nhau |
+| left | Xe hai bánh/người đi bộ sát hông, rider-người dắt xe và seam front-left/rear-left | Mắt cá làm méo vật sát xe; một vật có thể xuất hiện ở hai camera; dễ nhầm người thuộc `Bike` với người đi bộ độc lập | Giữ tọa độ ảnh gốc left, timestamp, calibration, vòng kính và policy annotation trong image space, không suy box BEV | Reviewer kiểm từng ca hard trên ảnh left trước; ca seam được đánh dấu để so với camera kề bên chỉ khi đủ metadata và policy |
+| right | Xe hai bánh/người đi bộ sát hông, che khuất và seam front-right/rear-right | Rủi ro tương tự left nhưng cần sample riêng vì góc nhìn, che khuất và calibration có thể khác | Giữ ảnh gốc right, timestamp, calibration, vòng kính, guideline rider và ignore region theo camera right | Annotator và reviewer độc lập kiểm normal/hard; giải quyết bất đồng bằng ảnh gốc + rule, lưu quyết định và chỉ chốt sau adjudication |
 
-- Khi nào cần refresh gold set (đổi camera, calibration hoặc rule): TODO
-- Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box: TODO
-- Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera: TODO
+- Khi nào cần refresh gold set (đổi camera, calibration hoặc rule): refresh khi thay/di chuyển camera, đổi lens hoặc calibration, thay pipeline biến đổi ảnh/annotation space, hoặc cập nhật guideline/class/attribute. Lấy thêm ca hard mới nếu distribution vận hành thay đổi; không tái dùng gold cũ mà không review các thay đổi này.
+- Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box: một xe hai bánh xuất hiện đồng thời ở seam front-right và right có thể có hai box hợp lệ trong image space. Chỉ nối identity/hợp nhất khi có timestamp đồng bộ, calibration của cả hai camera, bằng chứng cùng vị trí/thời gian và policy output quy định giữ/hợp nhất/chọn box nào. Nếu thiếu một yếu tố, giữ hai annotation camera-local và đánh dấu ca cần adjudication thay vì gọi là `DUPLICATE`.
+- Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera: ADASIND trong lab chỉ là một camera và teaching reference chỉ là reference học tập. Agreement/metric trên ba frame không kiểm calibration, timestamp, seam, góc nhìn, phân bố normal/hard hoặc chính sách cross-camera của bốn camera; gold set cần review độc lập và adjudication cho từng camera.
